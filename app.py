@@ -1,12 +1,10 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import pandas as pd
-import numpy as np
 import pickle
 import logging
 from datetime import datetime
 import os
-from werkzeug.exceptions import BadRequest
 from functools import wraps
 import time
 
@@ -168,9 +166,6 @@ class JobRecommenderSystem:
         if self.jobs_df is None or self.jobs_df.empty:
             return pd.DataFrame()
             
-        # For now, return random jobs with decreasing confidence scores
-        # In a real implementation, you'd use user interaction data
-        import random
         
         sample_jobs = self.jobs_df.sample(min(top_n, len(self.jobs_df)))
         
