@@ -1,0 +1,13 @@
+version = 1
+
+[[analyzers]]
+name = "python"
+enabled = true
+
+[analyzers.meta]
+python_version = "3.10"
+project_root = "."
+
+[analyzers.config]
+test_patterns = ["test_*.py", "*_test.py"]
+exclude_patterns = ["**/venv/**", "**/build/**", "**/.ipynb_checkpoints/**"]
